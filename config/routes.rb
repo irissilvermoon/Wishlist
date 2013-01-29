@@ -2,7 +2,9 @@ Wishlist::Application.routes.draw do
   resources :items
 
 
-  resources :wish_lists
+  resources :wish_lists do
+    resources :items
+  end
 
 
   # The priority is based upon order of creation:
@@ -54,7 +56,7 @@ Wishlist::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  # root :to => 'welcome#index'
+  root :to => 'wish_lists#index'
 
   # See how all your routes lay out with "rake routes"
 
