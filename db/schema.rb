@@ -11,17 +11,17 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130129044250) do
+ActiveRecord::Schema.define(:version => 20130129220329) do
 
   create_table "items", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.string   "link"
-    t.decimal  "cost",         :precision => 2, :scale => 0
+    t.decimal  "cost",         :precision => 10, :scale => 2
     t.text     "image"
     t.integer  "wish_list_id"
-    t.datetime "created_at",                                 :null => false
-    t.datetime "updated_at",                                 :null => false
+    t.datetime "created_at",                                  :null => false
+    t.datetime "updated_at",                                  :null => false
   end
 
   create_table "wish_lists", :force => true do |t|
