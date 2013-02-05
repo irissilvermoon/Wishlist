@@ -2,7 +2,8 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = Item.all
+    @wish_list = WishList.find(params[:wish_list_id])
+    @items = @wish_list.items.all
 
     respond_to do |format|
       format.html # index.html.erb
