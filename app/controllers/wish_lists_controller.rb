@@ -48,8 +48,7 @@ class WishListsController < ApplicationController
         format.json { render json: @wish_list, status: :created, location: @wish_list }
       else
         format.html { render action: "new" }
-        format.json { render json: @wish_list.errors, status: :unprocessable_entity }
-      end
+        format.json { render json: @wish_list.errors, status: :unprocessable_entity, }
     end
   end
 
