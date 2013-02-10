@@ -11,6 +11,7 @@ feature "Creating Wish Lists" do
     fill_in 'Description', :with => "A description of the wish list"
     click_button 'Create Wish list'
     page.should have_content('Wish list was successfully created.')
+    page.should have_content('Listing items')
   end
 
   scenario "Cannot create a Wish List without a name" do

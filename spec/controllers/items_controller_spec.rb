@@ -34,11 +34,18 @@ describe ItemsController do
     {}
   end
 
+  before do 
+    @wish_list = Factory.create(:wish_list, :title => "new title", :description => "description of title!")
+    @item_1 = Factory.create(:item, :title => "A Pony", :wish_list => @wish_list)
+    @item_2 = Factory.create(:item, :title => "A Corgi", :wish_list => @wish_list)
+
+    @item_3 = Factory.create(:item, :title => "A Camero")
+  end
+
   describe "GET index" do
     it "assigns all items as @items" do
-      item = Item.create! valid_attributes
-      get :index, {}, valid_session
-      assigns(:items).should eq([item])
+      get :index, {:wish_list_id => @wish_list.to_param}, valid_session
+      assigns(:items).should eq([@item_1, @item_2])
     end
   end
 
