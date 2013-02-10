@@ -47,8 +47,10 @@ class WishListsController < ApplicationController
         format.html { redirect_to @wish_list, notice: 'Wish list was successfully created.' }
         format.json { render json: @wish_list, status: :created, location: @wish_list }
       else
+        flash[:alert] = "Wish list has not been created."
         format.html { render action: "new" }
-        format.json { render json: @wish_list.errors, status: :unprocessable_entity, }
+        format.json { render json: @wish_list.errors, status: :unprocessable_entity }
+      end
     end
   end
 

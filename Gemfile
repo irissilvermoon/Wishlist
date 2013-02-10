@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
 
+gem 'dynamic_form', '1.1.4'
+
 gem 'activeadmin'
 gem 'sass-rails'
 gem "meta_search",    '>= 1.1.0.pre'

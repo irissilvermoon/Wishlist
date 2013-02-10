@@ -2,4 +2,10 @@
 
 <%= render 'form' %>
 
+<%= form_for(@wish_list) do |f| %>
+
+<%=f.error_messages %>
+
 <%= link_to 'Back', wish_lists_path %>
+
+<% end %>

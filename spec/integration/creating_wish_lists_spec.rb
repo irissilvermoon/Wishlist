@@ -16,6 +16,6 @@ feature "Creating Wish Lists" do
   scenario "Cannot create a Wish List without a name" do
     click_button 'Create Wish list'
     page.should have_content("Wish list has not been created.")
-    page.should have_content("Title can't be blank.")
+    page.should have_content("Title can't be blank")
   end
 end
