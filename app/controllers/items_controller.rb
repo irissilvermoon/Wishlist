@@ -26,7 +26,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   # GET /items/new.json
   def new
-    @item = @wish_list.items.new
+    @item = @wish_list.items.build
 
     respond_to do |format|
       format.html # new.html.erb
@@ -42,7 +42,7 @@ class ItemsController < ApplicationController
   # POST /items
   # POST /items.json
   def create
-    @item = @wish_list.items.new(params[:item])
+    @item = @wish_list.items.build(params[:item])
 
     respond_to do |format|
       if @item.save
@@ -62,7 +62,7 @@ class ItemsController < ApplicationController
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
-        format.html { redirect_to @item, notice: 'Item was successfully updated.' }
+        format.html { redirect_to wish_list_item_path(@wish_list), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

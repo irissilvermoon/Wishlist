@@ -19,9 +19,9 @@
     <td><%= item.link %></td>
     <td><%= item.cost %></td>
     <td><%= item.image %></td>
-    <td><%= link_to 'Show', item %></td>
-    <td><%= link_to 'Edit', edit_item_path(item) %></td>
-    <td><%= link_to 'Destroy', item, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Show', wish_list_item_path(@wish_list, item) %></td>
+    <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item) %></td>
+    <td><%= link_to 'Destroy', wish_list_item_path(@wish_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
@@ -30,4 +30,4 @@
 
 <!-- change new_item_path to new_wish_list_item_path -->
 
-<%= link_to 'New Item', new_item_path %>
+<%= link_to 'New Item', new_wish_list_item_path(@wish_list) %>
