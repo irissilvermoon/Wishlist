@@ -44,7 +44,7 @@ class WishListsController < ApplicationController
 
     respond_to do |format|
       if @wish_list.save
-        format.html { redirect_to wish_list_items_path(@wish_list), notice: 'Wish list was successfully created.' }
+        format.html { redirect_to new_wish_list_item_path(@wish_list), notice: 'Wish list was successfully created.' }
         format.json { render json: @wish_list, status: :created, location: @wish_list }
       else
         flash[:alert] = "Wish list has not been created."
