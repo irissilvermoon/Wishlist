@@ -1,8 +1,9 @@
 class ItemsController < ApplicationController
+  before_filter :find_wish_list
+
   # GET /items
   # GET /items.json
   def index
-    @wish_list = WishList.find(params[:wish_list_id])
     @items = @wish_list.items.all
 
     respond_to do |format|
@@ -14,7 +15,7 @@ class ItemsController < ApplicationController
   # GET /items/1
   # GET /items/1.json
   def show
-    @item = Item.find(params[:id])
+    @item = @wish_list.items.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -25,7 +26,7 @@ class ItemsController < ApplicationController
   # GET /items/new
   # GET /items/new.json
   def new
-    @item = Item.new
+    @item = @wish_list.items.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -35,17 +36,17 @@ class ItemsController < ApplicationController
 
   # GET /items/1/edit
   def edit
-    @item = Item.find(params[:id])
+    @item = @wish_list.items.find(params[:id])
   end
 
   # POST /items
   # POST /items.json
   def create
-    @item = Item.new(params[:item])
+    @item = @wish_list.items.new(params[:item])
 
     respond_to do |format|
       if @item.save
-        format.html { redirect_to @item, notice: 'Item was successfully created.' }
+        format.html { redirect_to wish_list_items_path(@wish_list), notice: 'Item was successfully created.' }
         format.json { render json: @item, status: :created, location: @item }
       else
         format.html { render action: "new" }
@@ -57,7 +58,7 @@ class ItemsController < ApplicationController
   # PUT /items/1
   # PUT /items/1.json
   def update
-    @item = Item.find(params[:id])
+    @item = @wish_list.items.find(params[:id])
 
     respond_to do |format|
       if @item.update_attributes(params[:item])
@@ -73,12 +74,16 @@ class ItemsController < ApplicationController
   # DELETE /items/1
   # DELETE /items/1.json
   def destroy
-    @item = Item.find(params[:id])
+    @item = @wish_list.items.find(params[:id])
     @item.destroy
 
     respond_to do |format|
       format.html { redirect_to items_url }
       format.json { head :no_content }
     end
+  end
+
+  def find_wish_list
+    @wish_list = WishList.find(params[:wish_list_id])
   end
 end
