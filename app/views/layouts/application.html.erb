@@ -8,7 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <% flash.each do |key, value| %>
     <div class='flash' id='<%= key %>'>
       <%= value %>
@@ -21,6 +20,10 @@
         <a class="brand" href="/">Wishlist</a>
         <ul class="nav">
           <li ><%= link_to 'Wish List', new_wish_list_path %></li>
+
+        </ul>
+        <ul class="nav pull-right">
+          <li><%= link_to "Sign up", new_user_registration_path %></li>
         </ul>
       </div>
     </div>
