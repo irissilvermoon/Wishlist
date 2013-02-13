@@ -15,7 +15,7 @@ describe "items/edit" do
     render
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    assert_select "form", :action => items_path(@item), :method => "post" do
+    assert_select "form", :action => wish_list_item_path(@wish_list, @item), :method => "post" do
       assert_select "input#item_title", :name => "item[title]"
       assert_select "input#item_description", :name => "item[description]"
       assert_select "input#item_link", :name => "item[link]"
