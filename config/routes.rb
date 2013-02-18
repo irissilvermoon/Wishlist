@@ -3,11 +3,11 @@ Wishlist::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
-  resources :items
-
 
   resources :wish_lists do
-    resources :items
+    resources :items do
+      resource :image
+    end
   end
 
 
