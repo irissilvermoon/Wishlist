@@ -7,6 +7,8 @@ gem 'dynamic_form', '1.1.4'
 gem 'activeadmin'
 gem 'sass-rails'
 gem "meta_search",    '>= 1.1.0.pre'
+
+gem 'metainspector'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
@@ -47,6 +49,7 @@ end
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4'
+  gem 'fakeweb'
 end
 
 group :production do
