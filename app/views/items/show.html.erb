@@ -22,8 +22,10 @@
   <b>Image:</b>
   <% if @item.image.present? %>
     <img src="<%= @item.image %>"> 
+  <% elsif @item.link.present? %>
+    <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
   <% else %>
-    no image 
+    no image
   <% end %>
 </p>
 
