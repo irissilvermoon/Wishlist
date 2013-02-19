@@ -20,7 +20,11 @@
 
 <p>
   <b>Image:</b>
-  <%= @item.image %>
+  <% if @item.image.present? %>
+    <img src="<%= @item.image %>"> 
+  <% else %>
+    no image 
+  <% end %>
 </p>
 
 
