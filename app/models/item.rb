@@ -3,4 +3,14 @@ class Item < ActiveRecord::Base
   validates :title, :presence => true
 
   belongs_to :wish_list
+
+  def link
+    if read_attribute(:link) =~ /^https*:\/\//
+      read_attribute(:link)
+    elsif read_attribute(:link) !=~ /^https*:\/\//
+      'http://' + read_attribute(:link)
+    else
+      nil
+    end
+  end
 end
