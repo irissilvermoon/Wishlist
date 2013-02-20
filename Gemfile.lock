@@ -206,6 +206,7 @@ DEPENDENCIES
   activeadmin
   capybara (= 1.1.2)
   coffee-rails (~> 3.2.1)
+  devise
   dynamic_form (= 1.1.4)
   factory_girl (= 2.6.4)
   fakeweb

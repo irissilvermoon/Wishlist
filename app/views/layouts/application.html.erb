@@ -8,7 +8,6 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
   <% flash.each do |key, value| %>
     <div class='flash' id='<%= key %>'>
       <%= value %>
@@ -21,6 +20,16 @@
         <a class="brand" href="/">Wishlist</a>
         <ul class="nav">
           <li ><%= link_to 'Wish List', new_wish_list_path %></li>
+
+        </ul>
+        <ul class="nav pull-right">
+          <% if user_signed_in? %>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+            <% end %>
+
         </ul>
       </div>
     </div>
@@ -32,7 +41,9 @@
 
   <footer>
     <div class="container">
-      UW Rails Winter 2013
+      <% if user_signed_in? %>
+          Signed in as <%= current_user.email %>
+      <% end %>
     </div>
   </footer>
 </body>
