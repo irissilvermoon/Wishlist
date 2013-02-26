@@ -3,6 +3,6 @@
 <% @images.each do |image| %>
   <div class="item-image">
     <img src="<%= image %>">
-    <%= link_to("choose image", wish_list_item_image_path(@wish_list, @item, :url => image), :method => :post) %>
+    <%= link_to("choose image", wish_list_item_image_path(@wish_list, @item, :url => image), :method => :post, :class => 'btn') %>
   </div>
 <% end %>

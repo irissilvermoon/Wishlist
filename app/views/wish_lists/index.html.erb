@@ -8,7 +8,6 @@
     <th></th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 
@@ -18,13 +17,12 @@
     <td><%= wish_list.title %></td>
     <td><%= wish_list.description %></td>
     <td><%= link_to 'Items', wish_list_items_path(wish_list) %></td>
-    <td><%= link_to 'Show', wish_list %></td>
     <td><%= link_to 'Edit', edit_wish_list_path(wish_list) %></td>
-    <td><%= link_to 'Destroy', wish_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= link_to 'Delete', wish_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Wish list', new_wish_list_path %>
+<%= link_to 'New Wish list', new_wish_list_path, :class => "btn" %>

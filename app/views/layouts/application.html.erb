@@ -8,15 +8,11 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-  <% flash.each do |key, value| %>
-    <div class='flash' id='<%= key %>'>
-      <%= value %>
-    </div>
-  <% end %>
 
   <div class="navbar navbar-fixed-top">
     <div class="navbar-inner">
       <div class="container">
+
         <a class="brand" href="/">Wishlist</a>
         <ul class="nav">
           <li ><%= link_to 'Wish List', new_wish_list_path %></li>
@@ -36,6 +32,13 @@
   </div>
 
   <div class="container">
+    <div class="row">
+      <% flash.each do |key, value| %>
+        <div class="alert <%= alert_class(key) %>" >
+          <%= value %>
+        </div>
+      <% end %>
+    </div>
     <%= yield %>
   </div>
 
