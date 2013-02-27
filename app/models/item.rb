@@ -13,4 +13,9 @@ class Item < ActiveRecord::Base
       nil
     end
   end
+
+  def cost=(cost)
+    cost = cost.gsub(",", "")
+    self[:cost] = cost
+  end
 end
