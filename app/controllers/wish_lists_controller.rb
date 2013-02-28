@@ -1,6 +1,8 @@
 class WishListsController < ApplicationController
   # GET /wish_lists
   # GET /wish_lists.json
+  before_filter :authenticate_user!, :except => [:index, :show]
+
   def index
     @wish_lists = WishList.all
 
@@ -41,6 +43,7 @@ class WishListsController < ApplicationController
   # POST /wish_lists.json
   def create
     @wish_list = WishList.new(params[:wish_list])
+    @wish_list.user = current_user
 
     respond_to do |format|
       if @wish_list.save

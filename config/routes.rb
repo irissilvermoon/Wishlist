@@ -3,6 +3,8 @@ Wishlist::Application.routes.draw do
 
   ActiveAdmin.routes(self)
 
+  devise_for :users, :controllers => { :registrations => "registrations" } 
+
   devise_for :admin_users, ActiveAdmin::Devise.config
 
 
@@ -12,6 +14,15 @@ Wishlist::Application.routes.draw do
     end
   end
 
+  resources :confirmations
+  
+  get '/awaiting_confirmation',
+      :to => "users#confirmation",
+      :as => 'confirm_user'
+  
+
+  root :to => 'wish_lists#index'
+end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -62,11 +73,11 @@ Wishlist::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'wish_lists#index'
+ 
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
-end
+
