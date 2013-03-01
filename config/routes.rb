@@ -14,7 +14,7 @@ Wishlist::Application.routes.draw do
     end
   end
 
-  resources :confirmations
+
   
   get '/awaiting_confirmation',
       :to => "users#confirmation",
