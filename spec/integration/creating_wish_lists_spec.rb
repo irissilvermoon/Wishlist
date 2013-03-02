@@ -12,7 +12,7 @@ feature "Creating Wish Lists" do
     fill_in "Email", :with => "wishlist@example.com"
     fill_in "Password", :with => 'password'
     click_button "Sign in"
-    page.should have_content("New wish_list") 
+    page.should have_content("New Wish List") 
   end
 
   scenario "It can create a new Wish List" do

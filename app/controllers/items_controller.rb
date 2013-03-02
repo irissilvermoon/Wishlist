@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+  
+  before_filter :authenticate_user!, :only => [:index, :show]
   before_filter :find_wish_list
+
 
   # GET /items
   # GET /items.json

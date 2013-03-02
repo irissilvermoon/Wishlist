@@ -1,7 +1,7 @@
 class WishListsController < ApplicationController
   # GET /wish_lists
   # GET /wish_lists.json
-  before_filter :authenticate_user!, :except => [:index, :show]
+  before_filter :authenticate_user!
 
   def index
     @wish_lists = WishList.all
