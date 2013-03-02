@@ -1,10 +1,13 @@
 Wishlist::Application.routes.draw do
-  devise_for :users
 
-  ActiveAdmin.routes(self)
+ ActiveAdmin.routes(self)
 
-  devise_for :users, :controllers => { :registrations => "registrations" } 
+ devise_for :users, :controllers => { :registrations => "registrations" } 
 
+ get '/awaiting_confirmation',
+    :to => "users#confirmation",
+    :as => 'confirm_user'
+      
   devise_for :admin_users, ActiveAdmin::Devise.config
 
 
@@ -13,14 +16,8 @@ Wishlist::Application.routes.draw do
       resource :image
     end
   end
-
-
   
-  get '/awaiting_confirmation',
-      :to => "users#confirmation",
-      :as => 'confirm_user'
-  
-
+ 
   root :to => 'wish_lists#index'
 end
 

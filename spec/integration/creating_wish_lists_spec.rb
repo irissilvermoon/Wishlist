@@ -1,18 +1,12 @@
 require 'spec_helper'
 
 feature "Creating Wish Lists" do
+  let!(:user) { Factory(:confirmed_user) }
+
   before do
-    user = Factory(:user, :email => "wishlist@example.com")
-    user.confirm!
+    sign_in_as!(user)
     visit '/'
     click_link 'New Wish List'
-    message = "You need to sign in or sign up before continuing."
-    page.should have_content(message)
-    
-    fill_in "Email", :with => "wishlist@example.com"
-    fill_in "Password", :with => 'password'
-    click_button "Sign in"
-    page.should have_content("New Wish List") 
   end
 
   scenario "It can create a new Wish List" do

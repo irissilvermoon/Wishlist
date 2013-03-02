@@ -67,6 +67,7 @@ class WishListsController < ApplicationController
         format.html { redirect_to @wish_list, notice: 'Wish list was successfully updated.' }
         format.json { head :no_content }
       else
+        flash[:alert] = "Wish list has not been updated."
         format.html { render action: "edit" }
         format.json { render json: @wish_list.errors, status: :unprocessable_entity }
       end
