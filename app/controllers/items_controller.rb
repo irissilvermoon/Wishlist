@@ -68,6 +68,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to wish_list_item_path(@wish_list), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
+        flash[:alert] = "Item has not been updated."
         format.html { render action: "edit" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
