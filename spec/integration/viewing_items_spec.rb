@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 feature "Viewing Items" do
+  let!(:user) { Factory(:confirmed_user) }
+  
   before do 
+    sign_in_as!(user)
     @wish_list = Factory.create(:wish_list, :title => "new title", :description => "description of title!")
     @item_1 = Factory.create(:item, :title => "A Pony", :wish_list => @wish_list)
     @item_2 = Factory.create(:item, :title => "A Corgi", :wish_list => @wish_list)

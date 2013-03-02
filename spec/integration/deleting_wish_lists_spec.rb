@@ -1,17 +1,17 @@
 require 'spec_helper'
 
 feature 'Deleting Wish lists' do
+  let!(:user) { Factory(:confirmed_user) }
+
   before do
-    Factory(:user, :email => "wishlist@example.com")
+    sign_in_as!(user)
+    Factory(:wish_list, :title => "Wish list 1", :description => "Wish list 1 description")
   end
 
   scenario "Deleting a wish list" do
-    Factory(:wish_list, :title => "something")
-    visit '/'
+    visit "/wish_lists"
     click_link "Delete"
-    page.should have_content("Project has been deleted.")
-
-    visit '/'
-    page.should_not have_content("something")
+    page.should have_content("Wish list has been deleted.")
+    page.current_url.should == wish_lists_url
   end
 end

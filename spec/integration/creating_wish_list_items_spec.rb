@@ -1,7 +1,10 @@
 require 'spec_helper'
 
 feature "creating wish list items" do
+  let!(:user) { Factory(:confirmed_user) }
+
   before do
+    sign_in_as!(user)
     @wish_list = Factory.create(:wish_list, :title => "new title", :description => "description of title!")
     visit new_wish_list_item_path(@wish_list)
   end
@@ -10,7 +13,7 @@ feature "creating wish list items" do
     fill_in "Title", :with => "A new Item!"
     click_button 'Create Item'
     page.should have_content "Item was successfully created."
-    page.should have_content "Listing items"
+    page.should have_content "Items"
   end
 
   scenario "Creating an item with invalid information" do
