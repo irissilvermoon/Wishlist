@@ -5,7 +5,7 @@ feature "creating wish list items" do
 
   before do
     sign_in_as!(user)
-    @wish_list = Factory.create(:wish_list, :title => "new title", :description => "description of title!")
+    @wish_list = Factory.create(:wish_list, :title => "new title", :description => "description of title!", :user => user)
     visit new_wish_list_item_path(@wish_list)
   end
 

@@ -5,7 +5,7 @@ feature 'Deleting Wish lists' do
 
   before do
     sign_in_as!(user)
-    Factory(:wish_list, :title => "Wish list 1", :description => "Wish list 1 description")
+    Factory(:wish_list, :title => "Wish list 1", :description => "Wish list 1 description", :user => user)
   end
 
   scenario "Deleting a wish list" do
