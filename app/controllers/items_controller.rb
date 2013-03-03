@@ -88,6 +88,6 @@ class ItemsController < ApplicationController
   end
 
   def find_wish_list
-    @wish_list = WishList.find(params[:wish_list_id])
+    @wish_list = current_user.wish_lists.find(params[:wish_list_id])
   end
 end

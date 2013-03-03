@@ -3,7 +3,7 @@ class Item < ActiveRecord::Base
   validates :title, :presence => true
 
   belongs_to :wish_list
-  belongs_to :user
+  
 
   def link
     if read_attribute(:link) =~ /^https*:\/\//
