@@ -4,7 +4,7 @@ module ApplicationHelper
     if flash_key == :notice
       'alert-success'
     else
-      'alert-' + "#{flash_key}"
+      "alert-#{flash_key}"
     end
   end
 end
