@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
 gem 'rails', '3.2.11'
-gem 'devise'
+gem 'devise', '~> 2.2'
 gem 'dynamic_form', '1.1.4'
 
-gem 'activeadmin'
-gem 'sass-rails'
+gem 'activeadmin', '~> 0.5'
+gem 'sass-rails', '~> 3.2'
 gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'metainspector'
@@ -25,7 +25,7 @@ group :assets do
   gem 'uglifier', '>= 1.0.3'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails', '2.1.4'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
@@ -42,17 +42,19 @@ gem 'jquery-rails'
 # To use debugger
 # gem 'debugger'
 group :test, :development do
-  gem 'sqlite3'
+  gem 'sqlite3', '1.3.7'
   gem 'rspec-rails', '~> 2.11'
-  gem 'pry'
+  gem 'pry', '~> 0.9'
+  gem 'letter_opener', '~> 1.1.0'
 end
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4'
-  gem 'fakeweb'
+  gem 'fakeweb', '1.3.0'
   gem 'email_spec', '1.2.1'
+  gem 'database_cleaner', '0.7.2'
 end
 
 group :production do
-  gem 'pg'
+  gem 'pg', '~> 0.14'
 end
