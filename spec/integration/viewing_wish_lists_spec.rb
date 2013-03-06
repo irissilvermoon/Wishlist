@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 feature "Viewing Wish lists" do
+  let!(:user) { Factory(:confirmed_user) }
+
   before do
+    sign_in_as!(user)
     1.upto(4) do |i| 
-      Factory(:wish_list, :title => "Wish list #{i}", :description => "Wish list #{i} description")
+      Factory(:wish_list, :title => "Wish list #{i}", :description => "Wish list #{i} description", :user => user)
     end
   end
 

@@ -10,6 +10,12 @@ require 'fakeweb'
 Dir[Rails.root.join("spec/support/**/*.rb")].each {|f| require f}
 
 RSpec.configure do |config|
+  config.include Devise::TestHelpers, :type => :controller
+  RSpec.configure do |config|
+    config.before do
+      ActionMailer::Base.deliveries.clear
+    end
+  end
   # ## Mock Framework
   #
   # If you prefer to use mocha, flexmock or RR, uncomment the appropriate line:
@@ -17,7 +23,7 @@ RSpec.configure do |config|
   # config.mock_with :mocha
   # config.mock_with :flexmock
   # config.mock_with :rr
-
+  
   # Remove this line if you're not using ActiveRecord or ActiveRecord fixtures
   config.fixture_path = "#{::Rails.root}/spec/fixtures"
 
@@ -38,4 +44,5 @@ RSpec.configure do |config|
   config.order = "random"
   FakeWeb.allow_net_connect = false
   FakeWeb.register_uri(:get, "http://www.flickr.com/photos/irissilvermoon", :body => File.read(Rails.root.join("spec/support/fakeweb_responses/iris_flickr.html")))
+  config.include EmailSpec::Helpers
 end

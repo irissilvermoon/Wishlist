@@ -1,9 +1,12 @@
 require 'spec_helper'
 
 feature "Creating Wish Lists" do
+  let!(:user) { Factory(:confirmed_user) }
+
   before do
+    sign_in_as!(user)
     visit '/'
-    click_link 'New Wish list'
+    click_link 'New Wish List'
   end
 
   scenario "It can create a new Wish List" do

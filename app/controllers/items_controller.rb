@@ -1,5 +1,8 @@
 class ItemsController < ApplicationController
+  
+  before_filter :authenticate_user!, :only => [:index, :show]
   before_filter :find_wish_list
+
 
   # GET /items
   # GET /items.json
@@ -65,6 +68,7 @@ class ItemsController < ApplicationController
         format.html { redirect_to wish_list_item_path(@wish_list), notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else
+        flash[:alert] = "Item has not been updated."
         format.html { render action: "edit" }
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
@@ -78,12 +82,12 @@ class ItemsController < ApplicationController
     @item.destroy
 
     respond_to do |format|
-      format.html { redirect_to items_url }
+      format.html { redirect_to wish_list_items_path(@wish_list), notice: "Item has been deleted." }
       format.json { head :no_content }
     end
   end
 
   def find_wish_list
-    @wish_list = WishList.find(params[:wish_list_id])
+    @wish_list = current_user.wish_lists.find(params[:wish_list_id])
   end
 end

@@ -3,6 +3,7 @@ class Item < ActiveRecord::Base
   validates :title, :presence => true
 
   belongs_to :wish_list
+  
 
   def link
     if read_attribute(:link) =~ /^https*:\/\//
@@ -12,5 +13,10 @@ class Item < ActiveRecord::Base
     else
       nil
     end
+  end
+
+  def cost=(cost)
+    cost = cost.gsub(/[^0-9.]/, "")
+    self[:cost] = cost
   end
 end
