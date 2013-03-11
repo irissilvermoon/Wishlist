@@ -7,7 +7,6 @@
     <th>Description</th>
     <th></th>
     <th></th>
-    <th></th>
   </tr>
 
 
@@ -16,7 +15,7 @@
   <tr>
     <td><%= link_to wish_list.title, wish_list_items_path(wish_list) %></td>
     <td><%= wish_list.description %></td>
-    <td><%= link_to 'Edit List Info', edit_wish_list_path(wish_list) %></td>
+    <td><%= link_to 'Edit Wish List', edit_wish_list_path(wish_list) %></td>
     <td><%= link_to 'Delete Wishlist', wish_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 <% end %>
