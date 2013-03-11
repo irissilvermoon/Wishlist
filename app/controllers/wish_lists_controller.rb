@@ -43,12 +43,12 @@ class WishListsController < ApplicationController
 
   # GET /wish_lists/1
   # GET /wish_lists/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @wish_list }
-    end
-  end  
+  #def show
+  #  respond_to do |format|
+  #    format.html # show.html.erb
+  #    format.json { render json: @wish_list }
+  #  end
+  #end
 
   # GET /wish_lists/1/edit
   def edit

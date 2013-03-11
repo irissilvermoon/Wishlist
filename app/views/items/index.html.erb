@@ -15,12 +15,21 @@
 
 <% @items.each do |item| %>
   <tr>
-    <td><%= item.title %></td>
+    <td><%= link_to item.title, wish_list_item_path(@wish_list, item) %></td>
     <td><%= item.description %></td>
-    <td><%= link_to truncate(item.link), item.link, :target => '_blank' %></td>
+    <td>
+      <% if item.link != "http://" %>
+        <%= link_to truncate(item.link), item.link, :target => '_blank' %>
+      <% end %>
+    </td>
     <td><%= number_to_currency(item.cost) %></td>
-    <td><%= truncate(item.image) %></td>
-    <td><%= link_to 'Show', wish_list_item_path(@wish_list, item) %></td>
+    <td>
+      <% if item.image.nil? %>
+        <span class="badge badge-important">No</span>
+      <% else %>
+        <span class="badge badge-success">Yes</span>
+      <% end %>
+    </td>
     <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item) %></td>
     <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
