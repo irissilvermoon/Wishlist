@@ -1,8 +1,6 @@
-class ItemsController < ApplicationController
-  
+class ItemsController < ApplicationController  
   before_filter :authenticate_user!, :only => [:index, :show]
   before_filter :find_wish_list
-
 
   # GET /items
   # GET /items.json
@@ -12,17 +10,6 @@ class ItemsController < ApplicationController
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @items }
-    end
-  end
-
-  # GET /items/1
-  # GET /items/1.json
-  def show
-    @item = @wish_list.items.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @item }
     end
   end
 
@@ -36,12 +23,7 @@ class ItemsController < ApplicationController
       format.json { render json: @item }
     end
   end
-
-  # GET /items/1/edit
-  def edit
-    @item = @wish_list.items.find(params[:id])
-  end
-
+  
   # POST /items
   # POST /items.json
   def create
@@ -56,6 +38,22 @@ class ItemsController < ApplicationController
         format.json { render json: @item.errors, status: :unprocessable_entity }
       end
     end
+  end
+  
+  # GET /items/1
+  # GET /items/1.json
+  def show
+    @item = @wish_list.items.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @item }
+    end
+  end
+
+  # GET /items/1/edit
+  def edit
+    @item = @wish_list.items.find(params[:id])
   end
 
   # PUT /items/1
@@ -87,6 +85,7 @@ class ItemsController < ApplicationController
     end
   end
 
+  private
   def find_wish_list
     @wish_list = current_user.wish_lists.find(params[:wish_list_id])
   end

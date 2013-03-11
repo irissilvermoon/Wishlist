@@ -1,25 +1,15 @@
 class WishListsController < ApplicationController
-  # GET /wish_lists
-  # GET /wish_lists.json
   before_filter :authenticate_user! 
   before_filter :find_wish_list, :except => [:index, :new, :create]
   
-
+  # GET /wish_lists
+  # GET /wish_lists.json
   def index
     @wish_lists = current_user.wish_lists.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @wish_lists }
-    end
-  end
-
-  # GET /wish_lists/1
-  # GET /wish_lists/1.json
-  def show
-    respond_to do |format|
-      format.html # show.html.erb
-      format.json { render json: @wish_list }
     end
   end
 
@@ -33,18 +23,12 @@ class WishListsController < ApplicationController
       format.json { render json: @wish_list }
     end
   end
-
-  # GET /wish_lists/1/edit
-  def edit
-    
-  end
-
+  
   # POST /wish_lists
   # POST /wish_lists.json
   def create
     @wish_list = current_user.wish_lists.build(params[:wish_list])
     
-
     respond_to do |format|
       if @wish_list.save
         format.html { redirect_to new_wish_list_item_path(@wish_list), notice: 'Wish list was successfully created.' }
@@ -55,6 +39,19 @@ class WishListsController < ApplicationController
         format.json { render json: @wish_list.errors, status: :unprocessable_entity }
       end
     end
+  end
+
+  # GET /wish_lists/1
+  # GET /wish_lists/1.json
+  def show
+    respond_to do |format|
+      format.html # show.html.erb
+      format.json { render json: @wish_list }
+    end
+  end  
+
+  # GET /wish_lists/1/edit
+  def edit
   end
 
   # PUT /wish_lists/1
@@ -76,7 +73,6 @@ class WishListsController < ApplicationController
   # DELETE /wish_lists/1.json
   def destroy
     @wish_list.destroy
-
     respond_to do |format|
       format.html { redirect_to wish_lists_url, :notice => 'Wish list has been deleted.' }
       format.json { head :no_content }
@@ -84,13 +80,10 @@ class WishListsController < ApplicationController
   end
 
   private
-
   def find_wish_list
     @wish_list = current_user.wish_lists.find(params[:id])
-
   rescue ActiveRecord::RecordNotFound
-    flash[:alert] = "The wish list you were looking" +
-                    " for could not be found."
+    flash[:alert] = "The wish list you were looking for could not be found."
     redirect_to :back
   end
 end
