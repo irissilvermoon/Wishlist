@@ -8,10 +8,12 @@
   <%= @item.description %>
 </p>
 
-<p>
-  <b>Link:</b>
-  <a href="<%= @item.link %>", target="_blank"><%= @item.link %></a>
-</p>
+<% if @item.link != "http://" %>
+  <p>
+    <b>Link:</b>
+    <a href="<%= @item.link %>", target="_blank"><%= @item.link %></a>
+  </p>
+<% end %>
 
 <p>
   <b>Cost:</b>
@@ -21,15 +23,15 @@
 <p>
   <b>Image:</b>
   <% if @item.image.present? %>
-    <img src="<%= @item.image %>"> 
-    <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
-  <% elsif @item.link.present? %>
-    <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
+      <img src="<%= @item.image %>">
   <% else %>
-    no image
+      no image
+      <% if @item.link != "http://" %>
+        <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
+      <% end %>
   <% end %>
 </p>
 
-
-<%= link_to 'Edit', edit_wish_list_item_path(@wish_list, @item) %> |
-<%= link_to 'Back', wish_list_items_path(@wish_list) %>
+<br />
+<%= link_to 'Edit Item', edit_wish_list_item_path(@wish_list, @item) %> |
+<%= link_to "Back to #{@wish_list.title}", wish_list_items_path(@wish_list) %>
