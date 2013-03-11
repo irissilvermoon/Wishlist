@@ -3,4 +3,4 @@
 <%= render 'form' %>
 
 <%= link_to 'Show', wish_list_item_path(@wish_list, @item) %> |
-<%= link_to 'Back', wish_list_items_path(@wish_list) %>
+<%= link_to "Back to #{@wish_list.title}", wish_list_items_path(@wish_list) %>
