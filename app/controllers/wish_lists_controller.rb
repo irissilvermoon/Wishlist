@@ -1,9 +1,9 @@
 class WishListsController < ApplicationController
-  before_filter :authenticate_user! 
-  before_filter :find_wish_list, :except => [:index, :new, :create]
-  
   # GET /wish_lists
   # GET /wish_lists.json
+  before_filter :authenticate_user!
+  before_filter :find_wish_list, :except => [:index, :new, :create]
+
   def index
     @wish_lists = current_user.wish_lists.all
 
@@ -23,12 +23,12 @@ class WishListsController < ApplicationController
       format.json { render json: @wish_list }
     end
   end
-  
+
   # POST /wish_lists
   # POST /wish_lists.json
   def create
     @wish_list = current_user.wish_lists.build(params[:wish_list])
-    
+
     respond_to do |format|
       if @wish_list.save
         format.html { redirect_to new_wish_list_item_path(@wish_list), notice: 'Wish list was successfully created.' }
