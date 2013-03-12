@@ -3,7 +3,7 @@ require 'spec_helper'
 describe WishListsController do
   let(:user) { Factory(:confirmed_user) }
   let(:wish_list) { Factory(:wish_list) }
-  let(:item) { Factory(:item, :wish_list => wish_list, 
+  let(:item) { Factory(:item, :wish_list => wish_list,
                        :user => user) }
 
   context "standard users" do
