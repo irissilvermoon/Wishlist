@@ -10,4 +10,8 @@ class User < ActiveRecord::Base
 
   has_many :wish_lists
   # attr_accessible :title, :body
+
+  def to_s
+    "#{email}"
+  end
 end
