@@ -1,4 +1,4 @@
-class ItemsController < ApplicationController  
+class ItemsController < ApplicationController
   before_filter :authenticate_user!, :only => [:index, :show]
   before_filter :find_wish_list
 
@@ -23,7 +23,7 @@ class ItemsController < ApplicationController
       format.json { render json: @item }
     end
   end
-  
+
   # POST /items
   # POST /items.json
   def create
@@ -39,7 +39,7 @@ class ItemsController < ApplicationController
       end
     end
   end
-  
+
   # GET /items/1
   # GET /items/1.json
   def show

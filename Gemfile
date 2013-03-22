@@ -1,7 +1,8 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.11'
+gem 'rails', '~> 3.2.11'
 gem 'devise', '~> 2.2'
+gem 'devise_invitable', '~> 1.1.0'
 gem 'dynamic_form', '1.1.4'
 
 gem 'activeadmin', '~> 0.5'
@@ -43,8 +44,8 @@ gem 'jquery-rails', '2.1.4'
 # gem 'debugger'
 group :test, :development do
   gem 'sqlite3', '1.3.7'
-  gem 'rspec-rails', '~> 2.11'
-  gem 'pry', '~> 0.9'
+  gem 'rspec-rails', '~> 2.13.0'
+  gem 'jazz_hands'
   gem 'letter_opener', '~> 1.1.0'
 end
 group :test do
