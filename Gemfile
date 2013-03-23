@@ -8,8 +8,9 @@ gem 'dynamic_form', '1.1.4'
 gem 'activeadmin', '~> 0.5'
 gem 'sass-rails', '~> 3.2'
 gem "meta_search",    '>= 1.1.0.pre'
-
 gem 'metainspector'
+gem 'omniauth'
+gem 'omniauth-facebook'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
