@@ -1,10 +1,10 @@
 module Users
   class OmniauthCallbacksController < Devise::OmniauthCallbacksController
     def facebook
-      # raise request.env["omniauth.auth"].to_yaml
       @user = User.find_for_facebook_oauth(env["omniauth.auth"])
 
       if @user.persisted?
+        @user.confirm! unless @user.confirmed?
         sign_in @user, :event => :authentication
         flash[:notice] = "Signed in with Facebook successfully."
         redirect_to wish_lists_path

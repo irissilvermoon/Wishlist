@@ -2,12 +2,13 @@ require 'spec_helper'
 
 feature 'Facebook Auth' do
   before do
-    OmniAuth.config.mock_auth[:facebook] = {
-      'uid' => '12345',
-      "user_info" => {
-        "email" => "foobar@example.com"
+    OmniAuth.config.mock_auth[:facebook] = OmniAuth::AuthHash.new({
+      :provider => 'facebook',
+      :uid => '12345678',
+      :info => {
+        :email => "foobar@wishlist.com"
       }
-    }
+    })
   end
 
   it "signs in with Facebook" do
