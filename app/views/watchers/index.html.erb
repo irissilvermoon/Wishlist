@@ -1,0 +1,8 @@
+<h1> My Watchers </h1>
+
+
+<ul>
+  <% current_user.watchers.each do |watcher| %>
+    <li><%= link_to watcher.email %>
+  <% end %>
+</ul>
