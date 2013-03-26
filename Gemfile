@@ -11,6 +11,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 gem 'metainspector'
 gem 'omniauth'
 gem 'omniauth-facebook'
+gem 'cancan'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
