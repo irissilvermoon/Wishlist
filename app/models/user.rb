@@ -10,10 +10,13 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :provider, :uid
 
+  has_many :wish_lists
+
   has_many :outbound_subscriptions, :class_name => 'Subscription', :foreign_key => :watcher_id
   has_many :watching, :through => :outbound_subscriptions
   has_many :inbound_subscriptions, :class_name => 'Subscription', :foreign_key => :watching_id
   has_many :watchers, :through => :inbound_subscriptions
+
   # attr_accessible :title, :body
 
   def to_s
