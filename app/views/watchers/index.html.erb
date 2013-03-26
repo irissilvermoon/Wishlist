@@ -3,6 +3,7 @@
 
 <ul>
   <% current_user.watchers.each do |watcher| %>
-    <li><%= link_to watcher.email %>
+    <li><%= link_to watcher.email, wish_list_path(watcher) %>
   <% end %>
 </ul>
+

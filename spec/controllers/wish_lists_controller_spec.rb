@@ -7,7 +7,7 @@ describe WishListsController do
                        :user => user) }
 
   context "standard users" do
-    it "cannot access a ticket for a project" do
+    it "cannot access a wish list for a project" do
       sign_in(:user, user)
       request.env["HTTP_REFERER"] = root_path
       get :show, :id => wish_list.id, :wish_list_id => wish_list.id

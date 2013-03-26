@@ -1,0 +1,7 @@
+<h1>Users I am Watching</h1>
+
+<ul>
+  <% current_user.watched_users.each do |watched| %>
+    <li><%= link_to watched.email, wish_list_path(watched) %>
+  <% end %>
+</ul>

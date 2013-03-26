@@ -2,10 +2,11 @@ class WishListsController < ApplicationController
   # GET /wish_lists
   # GET /wish_lists.json
   before_filter :authenticate_user!
+  before_filter :find_user, :except => [:new, :create, :destroy, :edit]
   before_filter :find_wish_list, :except => [:index, :new, :create]
 
   def index
-    @wish_lists = current_user.wish_lists.all
+    @wish_lists = @user.wish_lists.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -80,8 +81,13 @@ class WishListsController < ApplicationController
   end
 
   private
+
+  def find_user
+    @user = User.where(params[:user_id]).first || current_user
+  end
+
   def find_wish_list
-    @wish_list = current_user.wish_lists.find(params[:id])
+    @wish_list = @user.wish_lists.find(params[:id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The wish list you were looking for could not be found."
     redirect_to :back

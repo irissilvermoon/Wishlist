@@ -12,6 +12,7 @@ Wishlist::Application.routes.draw do
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :watchers
+  resources :watched_users
 
   resources :wish_lists do
     resources :items do

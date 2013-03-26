@@ -18,3 +18,4 @@ pickle-email-*.html
 .DS_Store
 *-journal
 script/set_up_facebook
+.env
