@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
   has_many :wish_lists
 
   has_many :outbound_subscriptions, :class_name => 'Subscription', :foreign_key => :watcher_id
-  has_many :watched_users, :through => :subscriptions, :source => :watching
+  has_many :watched_users, :through => :outbound_subscriptions, :source => :watching
   has_many :inbound_subscriptions, :class_name => 'Subscription', :foreign_key => :watching_id
   has_many :watchers, :through => :inbound_subscriptions
 
@@ -50,7 +50,7 @@ class User < ActiveRecord::Base
     user
   end
 
-  def user.watching?(other_user)
-    if other_user.in? watched_users
+  def watching?(other_user)
+    other_user.in? watched_users
   end
 end

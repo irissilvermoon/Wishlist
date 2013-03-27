@@ -2,8 +2,8 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    if user.watching?
-      can :read, :all
+    can :watch, User do |other_user|
+      user.watching? other_user
     end
   end
 end

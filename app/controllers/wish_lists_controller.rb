@@ -7,7 +7,6 @@ class WishListsController < ApplicationController
 
   def index
     @wish_lists = @user.wish_lists.all
-
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @wish_lists }
@@ -83,11 +82,11 @@ class WishListsController < ApplicationController
   private
 
   def find_user
-    @user = User.where(params[:user_id]).first || current_user
+    @user = current_user.watched_users.find_by_id(params[:user_id]) || current_user
   end
 
   def find_wish_list
-    @wish_list = @user.wish_lists.find(params[:id])
+    @wish_list = @user.wish_lists.find_by_id(params[:user_id])
   rescue ActiveRecord::RecordNotFound
     flash[:alert] = "The wish list you were looking for could not be found."
     redirect_to :back

@@ -14,12 +14,15 @@ Wishlist::Application.routes.draw do
   resources :watchers
   resources :watched_users
 
+  resources :users do
+    resources :wish_lists
+  end
+
   resources :wish_lists do
     resources :items do
       resource :image
     end
   end
-
 
   root :to => 'wish_lists#index'
 end
