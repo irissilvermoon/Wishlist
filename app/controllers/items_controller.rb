@@ -87,6 +87,7 @@ class ItemsController < ApplicationController
 
   private
   def find_wish_list
-    @wish_list = current_user.wish_lists.find(params[:wish_list_id])
+    @user = current_user.watched_users.where(:id => params[:user_id]).first || current_user
+    @wish_list = @user.wish_lists.find(params[:wish_list_id])
   end
 end

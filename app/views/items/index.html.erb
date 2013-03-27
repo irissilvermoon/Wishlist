@@ -8,14 +8,16 @@
     <th>Link</th>
     <th>Cost</th>
     <th>Image</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if can_edit_wish_list? %>
+      <th></th>
+      <th></th>
+      <th></th>
+    <% end %>
   </tr>
 
 <% @items.each do |item| %>
   <tr>
-    <td><%= link_to item.title, wish_list_item_path(@wish_list, item) %></td>
+    <td><%= link_to item.title, user_wish_list_item_path(@user, @wish_list, item) %></td>
     <td><%= item.description %></td>
     <td>
       <% if item.link != "http://" %>
@@ -30,14 +32,21 @@
         <span class="badge badge-success">Yes</span>
       <% end %>
     </td>
-    <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item) %></td>
-    <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can_edit_wish_list? %>
+      <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item) %></td>
+      <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<!-- change new_item_path to new_wish_list_item_path -->
+<% if can_edit_wish_list? %>
+  <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn" %>
+  <% else %>
+  <%= link_to 'Back to Wishlists', user_wish_lists_path(@user) , :class => "btn" %>
+<% end %>
 
-<%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn" %>
+
+

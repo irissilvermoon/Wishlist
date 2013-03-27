@@ -33,5 +33,7 @@
 </p>
 
 <br />
-<%= link_to 'Edit Item', edit_wish_list_item_path(@wish_list, @item) %> |
-<%= link_to "Back to #{@wish_list.title}", wish_list_items_path(@wish_list) %>
+<% if can_edit_wish_list? %>
+  <%= link_to 'Edit Item', edit_wish_list_item_path(@wish_list, @item) %> |
+<% end %>
+<%= link_to "Back to #{@wish_list.title}", user_wish_list_items_path(@user, @wish_list) %>

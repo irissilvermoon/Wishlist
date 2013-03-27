@@ -11,11 +11,15 @@ Wishlist::Application.routes.draw do
 
   devise_for :admin_users, ActiveAdmin::Devise.config
 
+  match "/auth/failure" => redirect("/")
+
   resources :watchers
   resources :watched_users
 
   resources :users do
-    resources :wish_lists
+    resources :wish_lists, :only => [:index, :show] do
+      resources :items
+    end
   end
 
   resources :wish_lists do

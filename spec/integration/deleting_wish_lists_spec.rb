@@ -9,8 +9,8 @@ feature 'Deleting Wish lists' do
   end
 
   scenario "Deleting a wish list" do
-    visit "/wish_lists"
-    click_link "Delete"
+    visit "/"
+    click_link "Delete Wishlist"
     page.should have_content("Wish list has been deleted.")
     page.current_url.should == wish_lists_url
   end

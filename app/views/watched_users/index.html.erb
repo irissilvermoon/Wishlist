@@ -2,6 +2,6 @@
 
 <ul>
   <% current_user.watched_users.each do |watched| %>
-    <li><%= link_to watched.email, wish_list_path(watched) %>
+    <li><%= link_to watched.email, user_wish_lists_path(watched) %>
   <% end %>
 </ul>

@@ -11,13 +11,13 @@ feature 'inviting users' do
 
   scenario 'User can invite another user' do
     fill_in "Email", :with => "newuser@wishlist.com"
-    click_button "Send an invitation"
-    page.should have_content("An invitation email has been sent")
+    click_button "Invite"
+    page.should have_content("newuser@wishlist.com was added as a watcher.")
   end
 
   scenario "Users can sign up via invite" do
     fill_in "Email", :with => "newuser@wishlist.com"
-    click_button "Send an invitation"
+    click_button "Invite"
     click_link "Sign out"
 
     open_email "newuser@wishlist.com", :with_subject => "You've been invited to Wishlist!"
