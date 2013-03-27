@@ -7,10 +7,9 @@ class WatchersController < ApplicationController
   end
 
   def create
-      @user = User.invite!(params[:user], current_user)
-      current_user.watchers << @user
-      redirect_to watchers_path, notice: "#{@user.email} was added as a watcher."
-    end
+    @user = User.invite!(params[:user], current_user)
+    current_user.watchers << @user
+    redirect_to watchers_path, notice: "#{@user.email} was added as a watcher."
   end
 
   def index
