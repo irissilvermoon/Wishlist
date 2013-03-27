@@ -10,14 +10,14 @@ feature "creating wish list items" do
   end
 
   scenario "creating items with valid parameters" do
-    fill_in "Title", :with => "A new Item!"
+    fill_in "Item", :with => "A new Item!"
     click_button 'Create Item'
     page.should have_content "Item was successfully created."
-    page.should have_content "Items"
+    page.should have_content "A new Item!"
   end
 
   scenario "Creating an item with invalid information" do
-    fill_in "Title", :with => ""
+    fill_in "Item", :with => ""
     click_button "Create Item"
     page.should have_content "Title can't be blank"
   end

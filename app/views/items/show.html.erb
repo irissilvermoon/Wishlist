@@ -22,13 +22,15 @@
 
 <p>
   <b>Image:</b>
-  <% if @item.image.present? %>
+    <% if @item.image.present? %>
       <img src="<%= @item.image %>">
-  <% else %>
+    <% else %>
       no image
-      <% if @item.link != "http://" %>
-        <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
+    <% if can_edit_wish_list? %>
+    <% if @item.link != "http://" %>
+      <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
       <% end %>
+    <% end %>
   <% end %>
 </p>
 
