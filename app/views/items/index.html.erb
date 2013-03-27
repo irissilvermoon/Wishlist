@@ -1,15 +1,14 @@
-<h1><%= @wish_list.title %> Items</h1>
+<h1><%= @wish_list.title %></h1>
 
 <table class="table">
 <table class="table table-bordered table-striped table-hover">
   <tr>
-    <th>Title</th>
+    <th>Item</th>
     <th>Description</th>
     <th>Link</th>
     <th>Cost</th>
     <th>Image</th>
     <% if can_edit_wish_list? %>
-      <th></th>
       <th></th>
       <th></th>
     <% end %>
