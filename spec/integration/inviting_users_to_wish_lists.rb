@@ -21,6 +21,7 @@ feature "Inviting users to Wishlists" do
     page.should have_content("person@wishlist.com was added as a watcher.")
     click_link "Invite User"
     fill_in "Email", :with => "person@wishlist.com"
+    click_button "Invite"
     page.should have_content("person@wishlist.com is already a watcher.")
   end
 end
