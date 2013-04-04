@@ -14,8 +14,13 @@ class WatchersController < ApplicationController
       redirect_to watchers_path, notice: "#{@user.email} is already a watcher."
     else
       @user = User.invite!(params[:user], current_user)
-      current_user.watchers << @user
-      redirect_to watchers_path, notice: "#{@user.email} was added as a watcher."
+
+      if @user.valid?
+        current_user.watchers << @user
+        redirect_to watchers_path, notice: "#{@user.email} was added as a watcher."
+      else
+        redirect_to new_watcher_path, alert: "Email can't be blank"
+      end
     end
   end
 

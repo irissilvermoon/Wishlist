@@ -1,6 +1,7 @@
 <h1>Invite new user to watch your Wishlists</h1>
 
 <%= form_for(@user, :url => watchers_path) do |f| %>
+  <%= f.error_messages %>
   <div>
     <%= f.label :email %>
     <%= f.email_field :email %>

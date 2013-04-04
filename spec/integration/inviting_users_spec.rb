@@ -31,4 +31,11 @@ feature 'inviting users' do
     click_button "Set my password"
     page.should have_content("Welcome to Wishlist! You are now signed in!")
   end
+
+  scenario 'inviting users with invalid attributes' do
+    fill_in "Email", :with => ""
+    click_button "Invite"
+    page.should have_content("Email can't be blank")
+    page.current_url.should == new_watcher_url
+  end
 end

@@ -44,18 +44,24 @@ gem 'jquery-rails', '2.1.4'
 
 # To use debugger
 # gem 'debugger'
-group :test, :development do
-  gem 'sqlite3', '1.3.7'
-  gem 'rspec-rails', '~> 2.13.0'
+group :development do
   gem 'jazz_hands'
   gem 'letter_opener', '~> 1.1.0'
+  gem 'better_errors'
 end
+
+group :test, :development do
+  gem 'sqlite3', '1.3.7'
+end
+
 group :test do
   gem 'capybara', '1.1.2'
   gem 'factory_girl', '2.6.4'
   gem 'fakeweb', '1.3.0'
+  gem 'rspec-rails', '~> 2.13.0'
   gem 'email_spec', '1.2.1'
   gem 'database_cleaner', '0.7.2'
+  gem 'simplecov', :require => false
 end
 
 group :production do
