@@ -1,9 +1,14 @@
 <h1> Users watching me </h1>
 
-
-<ul>
-  <% current_user.watchers.each do |watcher| %>
-    <li><%= link_to watcher.email, wish_list_path(watcher) %>
-  <% end %>
-</ul>
+<table>
+  <table class="table table-bordered table-striped table-hover">
+    <tr>
+      <% current_user.watchers.each do |watcher| %>
+      <tr>
+        <td><%= link_to watcher.email, wish_list_path(watcher) %></td>
+        <td><%= link_to 'Delete Watcher', watcher_path(watcher), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
+    </tr>
+</table>
 

@@ -27,5 +27,14 @@ class WatchersController < ApplicationController
   def index
     @watchers = current_user.watchers.all
   end
+
+  def destroy
+    #find watcher first
+    @watcher = current_user.watchers.find(params[:id])
+
+    @watcher.destroy
+    flash[:notice] = "#{@watcher.email} was removed from watchers."
+    redirect_to watchers_path
+  end
 end
 
