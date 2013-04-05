@@ -6,7 +6,7 @@
       <% current_user.watchers.each do |watcher| %>
       <tr>
         <td><%= link_to watcher.email, wish_list_path(watcher) %></td>
-        <td><%= link_to 'Delete Watcher', watcher_path(watcher), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Remove Watcher', watcher_path(watcher), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       <% end %>
       </tr>
     </tr>
