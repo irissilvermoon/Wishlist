@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = @wish_list.items.all
+    @items = @wish_list.items.order(:title).page(params[:page]).per(25)
 
     respond_to do |format|
       format.html # index.html.erb

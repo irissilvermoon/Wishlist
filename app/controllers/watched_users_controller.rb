@@ -3,7 +3,7 @@ class WatchedUsersController < ApplicationController
   before_filter :authenticate_user!
 
   def index
-    @watched_users = current_user.watched_users.all
+    @watched_users = current_user.watched_users.order(:email).page(params[:page]).per(25)
   end
 
   def destroy

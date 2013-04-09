@@ -3,14 +3,16 @@
 <table>
  <table class="table table-bordered table-striped table-hover">
   <tr>
-    <% current_user.watched_users.each do |watched| %>
+    <% @watched_users.each do |watched| %>
     <tr>
       <td><%= link_to watched.email, user_wish_lists_path(watched) %></td>
-      <td><%= link_to 'Remove User', watched_user_path(watched), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Stop Watching User', watched_user_path(watched), method: :delete, data: { confirm: 'Are you sure?' } %></td>
     <% end %>
     </tr>
   </tr>
 </table>
+
+<%= paginate @watched_users %>
 
 
 

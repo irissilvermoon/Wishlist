@@ -18,6 +18,8 @@ class User < ActiveRecord::Base
   has_many :inbound_subscriptions, :class_name => 'Subscription', :foreign_key => :watching_id
   has_many :watchers, :through => :inbound_subscriptions
 
+
+
   # attr_accessible :title, :body
 
   def to_s
