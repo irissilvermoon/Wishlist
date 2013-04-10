@@ -1,4 +1,4 @@
-<h1>Wish Lists</h1>
+<h2>My Wishlists</h2>
 
 <table>
   <table class="table table-bordered table-striped table-hover">
@@ -18,8 +18,9 @@
     <td><%= link_to wish_list.title, user_wish_list_items_path(@user, wish_list) %></td>
     <td><%= wish_list.description %></td>
     <% if can_edit_wish_list? %>
-      <td><%= link_to 'Edit Wish List', edit_wish_list_path(wish_list) %></td>
-      <td><%= link_to 'Delete Wishlist', wish_list, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit Wish List', edit_wish_list_path(wish_list), :class => "btn-primary btn-small" %></td>
+      <td><%= link_to 'Delete Wishlist', wish_list, method: :delete,
+                                         data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %></td>
     <% end %>
   </tr>
 <% end %>
@@ -28,7 +29,7 @@
 <br />
 
 <% if can_edit_wish_list? %>
-  <%= link_to 'New Wish List', new_wish_list_path, :class => "btn" %>
+  <%= link_to 'New Wish List', new_wish_list_path, :class => "btn btn-primary" %>
 <% end %>
 
 <%= paginate @wish_lists %>

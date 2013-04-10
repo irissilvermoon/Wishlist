@@ -30,12 +30,12 @@
   <% if @item.id != nil && @item.link != "http://" %>
     <div class="field">
       <%= f.label :image %>
-      <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item) %>
+      <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item), :class => "btn btn-primary" %>
     </div>
   <% end %>
 
   <br />
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit :class => "btn btn-primary" %>
   </div>
 <% end %>

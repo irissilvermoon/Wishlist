@@ -32,8 +32,9 @@
       <% end %>
     </td>
     <% if can_edit_wish_list? %>
-      <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item) %></td>
-      <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item), :class => "btn-primary btn-small" %></td>
+      <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete,
+                                                    data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %></td>
     <% end %>
   </tr>
 <% end %>
@@ -42,9 +43,9 @@
 <br />
 
 <% if can_edit_wish_list? %>
-  <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn" %>
+  <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn btn-primary" %>
   <% else %>
-  <%= link_to 'Back to Wishlists', user_wish_lists_path(@user) , :class => "btn" %>
+  <%= link_to 'Back to Wishlists', user_wish_lists_path(@user) , :class => "btn btn-primary" %>
 <% end %>
 
 

@@ -3,17 +3,18 @@
 <head>
   <title>Wishlist</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.1.1/amelia/bootstrap.min.css" />
+  <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootswatch/2.3.1/cosmo/bootstrap.min.css" />
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-  <div class="navbar navbar-fixed-top">
+<div class="navbar navbar-fixed-top">
+  <div class="navbar navbar-inverse">
     <div class="navbar-inner">
       <div class="container">
 
-        <a class="brand" href="/">Wishlist</a>
+       <a class="brand" href="/">Wishlist</a>
         <ul class="nav pull-right">
           <% if user_signed_in? %>
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
@@ -32,6 +33,8 @@
       </div>
     </div>
   </div>
+</div>
+
 
   <div class="container">
     <div class="row">
