@@ -14,7 +14,4 @@
 //= require jquery_ujs
 //= require_tree .
 
-jQuery ->
-  $("a[rel=popover]").popover()
-  $(".tooltip").tooltip()
-  $("a[rel=tooltip").tooltip()
+
