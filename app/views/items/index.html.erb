@@ -1,46 +1,55 @@
 <h1><%= @wish_list.title %></h1>
 
-<table class="table">
-<table class="table table-bordered table-striped table-hover">
-  <tr>
-    <th>Item</th>
-    <th>Description</th>
-    <th>Link</th>
-    <th>Cost</th>
-    <th>Image</th>
-    <% if can_edit_wish_list? %>
-      <th></th>
-      <th></th>
-    <% end %>
-  </tr>
-
-<% @items.each do |item| %>
-  <tr>
-    <td><%= link_to item.title, user_wish_list_item_path(@user, @wish_list, item) %></td>
-    <td><%= item.description %></td>
-    <td>
-      <% if item.link != "http://" %>
-        <%= link_to truncate(item.link), item.link, :target => '_blank' %>
-      <% end %>
-    </td>
-    <td><%= number_to_currency(item.cost) %></td>
-    <td>
-      <% if item.image.nil? %>
-        <span class="badge badge-important">No</span>
-      <% else %>
-        <span class="badge badge-success">Yes</span>
-      <% end %>
-    </td>
-    <% if can_edit_wish_list? %>
-      <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item), :class => "btn-primary btn-small" %></td>
-      <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete,
-                                                    data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
 <br />
+<div class="well">
+  <table class="table">
+    <table class="table table-bordered table-striped table-hover">
+      <tr>
+        <th>Item</th>
+        <th>Description</th>
+        <th>Link</th>
+        <th>Cost</th>
+        <th>Image</th>
+        <th>Purchased?</th>
+        <% if can_edit_wish_list? %>
+          <th></th>
+          <th></th>
+          <th></th>
+        <% end %>
+      </tr>
+
+    <% @items.each do |item| %>
+      <tr>
+        <td><%= link_to item.title, user_wish_list_item_path(@user, @wish_list, item) %></td>
+        <td><%= item.description %></td>
+        <td>
+          <% if item.link != "http://" %>
+            <%= link_to truncate(item.link), item.link, :target => '_blank' %>
+          <% end %>
+        </td>
+        <td><%= number_to_currency(item.cost) %></td>
+        <td>
+          <% if item.image.nil? %>
+            <span class="badge badge-important">No</span>
+          <% else %>
+            <span class="badge badge-success">Yes</span>
+          <% end %>
+        </td>
+
+        <td><%= item.purchased %></td>
+
+        <% if can_edit_wish_list? %>
+          <td><%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item), :class => "btn-primary btn-small" %></td>
+          <td><%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete,
+                                                        data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %></td>
+        <% end %>
+      </tr>
+    <% end %>
+  </table>
+
+  <br />
+
+</div>
 
 <% if can_edit_wish_list? %>
   <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn btn-primary" %>

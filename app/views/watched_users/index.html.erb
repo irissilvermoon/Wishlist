@@ -1,18 +1,22 @@
 <h1>Wishlists I am Watching</h1>
 
-<table>
- <table class="table table-bordered table-striped table-hover">
-  <tr>
-    <% @watched_users.each do |watched| %>
+<br />
+<div class="well">
+  <table>
+   <table class="table table-bordered table-striped table-hover">
     <tr>
-      <td><%= link_to watched.email, user_wish_lists_path(watched) %></td>
-      <td><%= link_to 'Stop Watching User', watched_user_path(watched), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
+      <% @watched_users.each do |watched| %>
+      <tr>
+        <td><%= link_to watched.email, user_wish_lists_path(watched) %></td>
+        <td><%= link_to 'Stop Watching User', watched_user_path(watched), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <% end %>
+      </tr>
     </tr>
-  </tr>
-</table>
+  </table>
+</div>
 
 <%= paginate @watched_users %>
+
 
 
 

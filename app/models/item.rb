@@ -1,5 +1,5 @@
 class Item < ActiveRecord::Base
-  attr_accessible :cost, :description, :image, :link, :title
+  attr_accessible :cost, :description, :image, :link, :title, :purchased
   belongs_to :wish_list
 
   validates :title, :presence => true

@@ -1,17 +1,24 @@
 <h1> Users watching my Wishlists </h1>
 
-<table>
-  <table class="table table-bordered table-striped table-hover">
-    <tr>
-      <% @watchers.each do |watcher| %>
-      <tr>
-        <td><%= link_to watcher.email, wish_list_path(watcher) %></td>
-        <td><%= link_to 'Remove as Watcher', watcher_path(watcher), method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      <% end %>
-      </tr>
-    </tr>
-</table>
-
+<br />
+  <div class="well">
+    <table>
+      <table class="table table-bordered table-striped table-hover">
+        <tr>
+          <% @watchers.each do |watcher| %>
+          <tr>
+            <td><%= link_to watcher.email, wish_list_path(watcher) %></td>
+            <td><%= link_to 'Remove as Watcher', watcher_path(watcher), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+          <% end %>
+          </tr>
+        </tr>
+    </table>
+  </table>
+</div>
 <%= paginate @watchers %>
+
+
+
+
 
 
