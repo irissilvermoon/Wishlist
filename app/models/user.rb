@@ -16,6 +16,9 @@ class User < ActiveRecord::Base
 
 
   validates_presence_of :username
+  validates_uniqueness_of :username, :email
+
+  has_one :user_profile
 
   has_many :wish_lists
 
