@@ -3,12 +3,23 @@
 <br />
 <p>
   <b>Address:</b>
+</p>
+<p>
   <%= @user_profile.name %>
+</p>
+<p>
   <%= @user_profile.address1 %>
+</p>
+<p>
   <%= @user_profile.address2 %>
-  <%= @user_profile.city %> <%= @user_profile.state %> <%= @user_profile.ZIP %>
+</p>
+<p>
+  <%= @user_profile.city %>
+  <%= @user_profile.state %>
+  <%= @user_profile.ZIP %>
+</p>
+<p>
   <%= @user_profile.country %>
-
 </p>
 
 <td><%= link_to 'Edit Profile', edit_user_profile_path, :class => "btn-primary btn-small" %></td>

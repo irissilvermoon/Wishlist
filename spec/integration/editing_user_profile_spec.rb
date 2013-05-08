@@ -11,9 +11,9 @@ feature 'User Profiles' do
     click_link 'Edit Profile'
   end
 
-  scenario 'Users can edit their profiles' do
+  scenario 'Users can create profiles' do
     fill_in "Address 1", :with => "123 something st"
-    click_button "Submit"
-    page.should have_content("Profile has been sucessfully updated.")
+    click_button "Create User profile"
+    page.should have_content("Profile has been updated.")
   end
 end
