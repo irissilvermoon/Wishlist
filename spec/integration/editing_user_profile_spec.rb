@@ -8,7 +8,7 @@ feature 'User Profiles' do
     visit '/'
     click_link 'Profile'
     page.should have_content("#{user.username}")
-    click_button 'Edit Profile'
+    click_link 'Edit Profile'
   end
 
   scenario 'Users can edit their profiles' do
