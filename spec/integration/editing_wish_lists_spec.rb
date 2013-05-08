@@ -16,7 +16,6 @@ feature 'Editing Wish lists' do
     page.should have_content("Wish list was successfully updated.")
   end
 
-
   scenario "Updating a wish list with invalid attributes is bad" do
     fill_in "Title", :with => " "
     click_button "Update Wish list"

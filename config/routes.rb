@@ -15,7 +15,8 @@ Wishlist::Application.routes.draw do
 
   resources :watchers
   resources :watched_users
-  resources :user_profiles
+  resource :user_profile
+
 
   resources :users do
     resources :wish_lists, :only => [:index, :show] do

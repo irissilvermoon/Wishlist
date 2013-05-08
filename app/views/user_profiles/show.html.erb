@@ -1,0 +1,14 @@
+<h1><%= current_user.username %> Profile</h1>
+
+<br />
+<p>
+  <b>Address:</b>
+  <%= @user_profile.name %>
+  <%= @user_profile.address1 %>
+  <%= @user_profile.address2 %>
+  <%= @user_profile.city %> <%= @user_profile.state %> <%= @user_profile.ZIP %>
+  <%= @user_profile.country %>
+
+</p>
+
+<td><%= link_to 'Edit Profile', edit_user_profile_path, :class => "btn-primary btn-small" %></td>
