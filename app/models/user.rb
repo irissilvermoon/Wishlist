@@ -14,10 +14,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :provider, :uid, :username, :login
 
-
-  validates_presence_of :username
-  validates_uniqueness_of :username, :email
-
+  validates_uniqueness_of :email, :username
   has_one :user_profile
 
   has_many :wish_lists

@@ -48,12 +48,12 @@ gem 'jquery-rails', '2.1.4'
 # To use debugger
 # gem 'debugger'
 group :development do
-  gem 'jazz_hands'
   gem 'letter_opener', '~> 1.1.0'
   gem 'better_errors'
 end
 
 group :test, :development do
+  gem 'jazz_hands'
   gem 'sqlite3', '1.3.7'
 end
 

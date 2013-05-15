@@ -14,7 +14,7 @@ feature 'deleting users from watchers list' do
   end
 
   scenario 'Users should be able to delete watchers' do
-    click_link "Delete"
+    click_link "Remove as Watcher"
     page.should have_content("newuser@wishlist.com was removed from watchers.")
     page.current_url.should == watchers_url
   end

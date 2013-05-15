@@ -30,7 +30,7 @@ describe WatchersController do
 
       it "should redirect to wwatchers" do
         post :create, :user => {:email => "example@example.com"}
-        response.should redirect_to new_watcher_url
+        response.should redirect_to watchers_url
       end
     end
 

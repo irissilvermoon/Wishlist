@@ -26,7 +26,6 @@ feature 'inviting users' do
     click_email_link_matching(/invitation/)
 
     page.should have_content("Please set your username and password")
-    fill_in "Username", :with => "username"
     fill_in "Password", :with => "password"
     fill_in "Password confirmation", :with => "password"
     click_button "Set Username and Password"
