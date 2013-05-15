@@ -29,7 +29,7 @@ class WatchersController < ApplicationController
   end
 
   def destroy
-    #find watcher first
+    # find watcher first
     @watcher = current_user.watchers.find(params[:id])
     @subscription = current_user.inbound_subscriptions.where(:watcher_id => @watcher.id).first
 

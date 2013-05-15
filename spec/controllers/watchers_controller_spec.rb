@@ -28,14 +28,14 @@ describe WatchersController do
         new_user.should be_in user.watchers
       end
 
-      it "should redirect to wishlists" do
+      it "should redirect to wwatchers" do
         post :create, :user => {:email => "example@example.com"}
-        response.should redirect_to watchers_url
+        response.should redirect_to new_watcher_url
       end
     end
 
     context "with a user that does exist" do
-      let!(:existing_user) { Factory(:confirmed_user) }
+      let(:existing_user) { Factory(:confirmed_user) }
 
       it "should not create a user in the system" do
         expect { post :create, :user => {:email => existing_user.email} }.to_not change {

@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 3.2.11'
+gem 'rails', '~> 3.2.13'
 gem 'devise', '~> 2.2'
 gem 'devise_invitable', '~> 1.1.0'
 gem 'dynamic_form', '1.1.4'
