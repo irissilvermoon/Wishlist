@@ -4,6 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable :trackable
   attr_accessor :login
 
+
   devise :invitable, :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable,
          :omniauthable, :omniauth_providers => [:facebook],
@@ -27,6 +28,13 @@ class User < ActiveRecord::Base
 
 
   # attr_accessible :title, :body
+
+
+
+
+  def generate_username(email = self.email)
+    self.username = email.split("@").first
+  end
 
   def to_s
     "#{email}"

@@ -1,0 +1,9 @@
+<h1><%= current_user.username %> Profile</h1>
+
+<p>
+  <b>Address:</b>
+  <%= @user_profile.name %>
+
+</p>
+
+<td><%= link_to 'Edit', edit_user_profile_path(user), :class => "btn-primary btn-small" %></td>
