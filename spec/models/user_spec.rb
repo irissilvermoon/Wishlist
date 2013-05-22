@@ -7,5 +7,11 @@ describe User do
       user.generate_username("irismail@gmail.com")
       user.username.should == "irismail"
     end
+
+    it "adds username when one is not provided" do
+      user = User.new(:email => "iris@gmail.com")
+      user.save
+      user.username.should == "iris"
+    end
   end
 end

@@ -16,6 +16,8 @@ class User < ActiveRecord::Base
                   :remember_me, :provider, :uid, :username, :login
 
   validates_uniqueness_of :email, :username
+  before_validation :generate_username
+
   has_one :user_profile
 
   has_many :wish_lists
