@@ -16,7 +16,8 @@ class User < ActiveRecord::Base
                   :remember_me, :provider, :uid, :username, :login
 
   validates_uniqueness_of :email, :username
-  before_validation :generate_username
+  before_validation :generate_username, :if => 'email.present?'
+  validates_presence_of :email, :username
 
   has_one :user_profile
 
