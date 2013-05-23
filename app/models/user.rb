@@ -37,6 +37,14 @@ class User < ActiveRecord::Base
 
   def generate_username(email = self.email)
     self.username = email.split("@").first
+
+    n = 0
+
+    while User.where(:username => self.username).exists?
+      n += 1
+      stem = email.split("@").first
+      self.username = "#{stem}-#{n}"
+    end
   end
 
   def to_s
