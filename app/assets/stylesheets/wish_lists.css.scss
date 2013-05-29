@@ -2,12 +2,27 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+p.btn-primary {
+  box-shadow: 2px 2px 2px #58595a;
+}
+
 .wishlist-grid {
   background: #cbcccd;
   border: 10px 10px 10px 10px;
   float: left;
   height: 200px;
   width: 200px;
+  box-shadow: 5px 5px 5px #58595a;
   margin: 10px 10px 10px 0px;
   padding: 5px;
+
+  p {
+    margin: 5px 5px 5px 5px;
+  }
+
+  .btn-primary.btn-small {
+    display: block;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+  }
 }

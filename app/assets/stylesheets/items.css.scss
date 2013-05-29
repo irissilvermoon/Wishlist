@@ -1,1 +1,41 @@
 
+p.btn-primary {
+  box-shadow: 2px 2px 2px #58595a;
+}
+
+.items-grid {
+  background: #cbcccd;
+
+  border: 10px 10px 10px 10px;
+  float: left;
+  height: 400px;
+  width: 250px;
+  box-shadow: 5px 5px 5px #58595a;
+  margin: 10px 10px 10px 0px;
+  padding: 10px;
+
+
+  img {
+    display: block;
+    max-height: 200px;
+    max-width: 200px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5px;
+  }
+
+  p {
+    margin: 5px 5px 5px 5px;
+  }
+
+  .btn-primary.btn-small {
+    display: block;
+    text-align: center;
+    margin: 5px 5px 5px 5px;
+  }
+
+  #optionsCheckbox {
+    margin-bottom: 7px;
+    box-shadow: 2px 2px 2px #58595a;
+  }
+}
