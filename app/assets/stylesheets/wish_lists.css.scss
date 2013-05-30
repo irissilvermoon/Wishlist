@@ -8,6 +8,7 @@ p.btn-primary {
 
 .wishlist-grid {
   background: #cbcccd;
+  position: relative;
   border: 10px 10px 10px 10px;
   float: left;
   height: 200px;
@@ -20,9 +21,16 @@ p.btn-primary {
     margin: 5px 5px 5px 5px;
   }
 
+  .edit-buttons {
+    position: absolute;
+    bottom: 5px;
+    width: 95%;
+  }
+
   .btn-primary.btn-small {
     display: block;
     text-align: center;
     margin: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #58595a;
   }
 }

@@ -10,36 +10,39 @@
 
 
     <% @items.each do |item| %>
-    <div class="items-grid">
+      <div class="items-grid">
         <% if item.image.present? %>
-             <img src="<%= item.image %>">
-          <% else %>
-              no image
+          <img src="<%= item.image %>">
+        <% else %>
+          no image
+        <% end %>
+
+        <p><b>Item:</b> <%= link_to item.title, user_wish_list_item_path(@user, @wish_list, item) %></p>
+
+        <p><b>Description:</b> <%= truncate(item.description) %></p>
+
+        <p>
+          <b>Link:</b>
+          <% if item.link != "http://" %>
+            <%= link_to truncate(item.link), item.link, :target => '_blank' %>
           <% end %>
+        </p>
 
-          <p><b>Item:</b> <%= link_to item.title, user_wish_list_item_path(@user, @wish_list, item) %></p>
+        <p><b>Cost:</b> <%= number_to_currency(item.cost) %></p>
 
-          <p><b>Description:</b> <%= item.description %></p>
+        <p>
+          <b>Purchased?</b>
+          <input type="checkbox" id="optionsCheckbox" value="option1">
+        </p>
 
-          <p><b>Link:</b> <% if item.link != "http://" %>
-                            <%= link_to truncate(item.link), item.link, :target => '_blank' %>
-                          <% end %></p>
-
-          <p><b>Cost:</b> <%= number_to_currency(item.cost) %></p>
-
-          <p><b>Purchased?</b> <input type="checkbox" id="optionsCheckbox" value="option1">
-
-
-
-
-
-
-         <% if can_edit_wish_list? %>
-         <%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item), :class => "btn-primary btn-small" %>
-         <%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete,
-                                                        data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %>
-        </div>
-      <% end %>
+        <% if can_edit_wish_list? %>
+          <div class="edit-buttons">
+            <%= link_to 'Edit', edit_wish_list_item_path(@wish_list, item), :class => "btn-primary btn-small" %>
+            <%= link_to 'Delete', wish_list_item_path(@wish_list, item), method: :delete,
+                                                          data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <br />
 

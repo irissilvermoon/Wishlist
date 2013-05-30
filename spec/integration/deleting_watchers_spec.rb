@@ -6,6 +6,7 @@ feature 'deleting users from watchers list' do
   before do
     sign_in_as!(user)
     visit '/'
+    click_link 'Profile'
     click_link "Invite User"
 
     fill_in "Email", :with => "newuser@wishlist.com"

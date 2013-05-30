@@ -6,6 +6,7 @@ feature 'inviting users' do
   before do
     sign_in_as!(user)
     visit '/'
+    click_link 'Profile'
     click_link 'Invite User'
   end
 

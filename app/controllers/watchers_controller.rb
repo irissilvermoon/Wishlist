@@ -11,6 +11,7 @@ class WatchersController < ApplicationController
     #check if user is present in current_user.watchers list
     #if not, add them.
     @user = current_user.watchers.where(:email => params[:user][:email]).first
+
     if @user
       redirect_to watchers_path, notice: "#{@user.email} is already a watcher."
     else

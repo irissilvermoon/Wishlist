@@ -5,7 +5,7 @@ p.btn-primary {
 
 .items-grid {
   background: #cbcccd;
-
+  position: relative;
   border: 10px 10px 10px 10px;
   float: left;
   height: 400px;
@@ -28,10 +28,17 @@ p.btn-primary {
     margin: 5px 5px 5px 5px;
   }
 
+  .edit-buttons {
+    position: absolute;
+    bottom: 5px;
+    width: 92%;
+  }
+
   .btn-primary.btn-small {
     display: block;
     text-align: center;
     margin: 5px 5px 5px 5px;
+    box-shadow: 2px 2px 2px #58595a;
   }
 
   #optionsCheckbox {
