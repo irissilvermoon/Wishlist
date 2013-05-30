@@ -35,7 +35,8 @@
   <div class="container">
     <div class="row">
       <% flash.each do |key, value| %>
-        <div class="alert <%= alert_class(key) %>" >
+        <div class="alert <%= alert_class(key) %>">
+          <a class="close" data-dismiss="alert">x</a>
           <%= value %>
         </div>
       <% end %>

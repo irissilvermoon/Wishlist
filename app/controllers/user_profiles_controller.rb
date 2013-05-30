@@ -1,5 +1,6 @@
 class UserProfilesController < ApplicationController
 
+  before_filter :find_user, :only => [:show]
   before_filter :prepare_user_profile
 
   def index
@@ -27,7 +28,12 @@ class UserProfilesController < ApplicationController
   end
 
   def prepare_user_profile
-    @user_profile = current_user.user_profile ||
-                    current_user.build_user_profile
+    @user ||= current_user
+    @user_profile = @user.user_profile ||
+                    @user.build_user_profile
+  end
+
+  def find_user
+    @user = current_user.watched_users.where(:id => params[:id]).first
   end
 end

@@ -15,3 +15,8 @@
 //= require_tree .
 
 
+$(document).ready(function() {
+    $('.close').on('click', function() {
+    $('.alert').slideUp('slow');
+  });
+});

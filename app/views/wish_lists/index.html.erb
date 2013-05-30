@@ -1,32 +1,37 @@
-<h2>My Wishlists</h2>
 
-<p>
+
   <% if can_edit_wish_list? %>
-    <%= link_to 'New Wish List', new_wish_list_path, :class => "btn btn-primary" %>
-
+      <h2>My Wishlists</h2>
+      <p><%= link_to 'New Wish List', new_wish_list_path, :class => "btn btn-primary" %></p>
+  <% else %>
+      <h2>
+        <%= @user.username %>'s Wishlists
+      </h2>
+      <p>
+        <%= link_to "#{@user.username}'s Profile", public_profile_path(@user), :class => "btn btn-primary" %>
+      </p>
   <% end %>
-</p>
+
 
 
   <% @wish_lists.each do |wish_list| %>
       <div class="wishlist-grid">
-          <p>
-            <b>Title:</b>
-            <%= link_to wish_list.title, user_wish_list_items_path(@user, wish_list) %>
-          </p>
-          <p>
-            <b>Description:</b>
-            <%= wish_list.description %>
-          </p>
-            <% if can_edit_wish_list? %>
-              <br />
-              <div class="edit-buttons">
-                <%= link_to 'Edit Wishlist', edit_wish_list_path(wish_list), :class => "btn-primary btn-small" %>
-                <%= link_to 'Delete Wishlist', wish_list, method: :delete,
-                                                 data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %>
-              </div>
-            <% end %>
-        </div>
+        <p>
+          <b>Title:
+          <%= link_to wish_list.title, user_wish_list_items_path(@user, wish_list) %></b>
+        </p>
+        <p>
+          <b>Description:</b>
+          <%= wish_list.description %>
+        </p>
+        <% if can_edit_wish_list? %>
+          <div class="edit-buttons">
+            <%= link_to 'Edit Wishlist', edit_wish_list_path(wish_list), :class => "btn-primary btn-small" %>
+            <%= link_to 'Delete Wishlist', wish_list, method: :delete,
+                                             data: { confirm: 'Are you sure?' }, :class => "btn-primary btn-small" %>
+          </div>
+        <% end %>
+      </div>
     <% end %>
   <br />
 
