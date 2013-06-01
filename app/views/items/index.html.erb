@@ -32,10 +32,12 @@
 
         <p>
           <b>Purchased?</b>
+          <%= check_box_tag :purchased, 1, item.purchased?, :class => "options-checkbox", "data-url" => wish_list_item_purchase_path(@wish_list, item) %>
+
           <% if item.purchased? %>
             Yes
           <% else %>
-            <input type="checkbox" class="options-checkbox" value="option1" data-url="<%= wish_list_item_purchases_path(@wish_list, item) %>">
+            <input type="checkbox" class="options-checkbox" value="option1" data-url="<%= wish_list_item_purchase_path(@wish_list, item) %>">
           <% end %>
         </p>
 

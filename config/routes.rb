@@ -27,7 +27,7 @@ Wishlist::Application.routes.draw do
 
   resources :wish_lists do
     resources :items do
-      resources :purchases, :only => [:create]
+      resource :purchase, :only => [:create, :destroy]
       resource :image
     end
   end

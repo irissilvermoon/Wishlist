@@ -7,10 +7,10 @@
 
 $(document).ready(function() {
   $('.options-checkbox').on('click', function(event) {
-    var $el = $(event.target);
-    var url = $el.data('url');
+    var checkbox = $(event.target);
+    var url = checkbox.data('url');
 
-    console.log(url);
+    console.log(url, checkbox.is(':checked'));
     // $.post('ajax/test.html', function(data) {
     //   $('.result').html(data);
     // });
@@ -18,6 +18,6 @@ $(document).ready(function() {
       console.log('success');
     });
 
-    $el.replaceWith('<span>Yes</span>');
+    checkbox.replaceWith('<span>Yes</span>');
   });
 });

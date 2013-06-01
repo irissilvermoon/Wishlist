@@ -8,4 +8,8 @@ class PurchasesController < ApplicationController
     @item.save
     head 200
   end
+
+  #make destroy method for undo
+  #set purchased_by to nil
+  #change route to :only => [:create, :destroy]
 end
