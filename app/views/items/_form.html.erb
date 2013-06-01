@@ -32,12 +32,6 @@
       <%= f.label :image %>
       <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item), :class => "btn btn-primary" %>
     </div>
-
-    <div class="field">
-      <%= f.label :purchased %>
-      <%= f.select :purchased, { "Not Purchased" => false, "Purchased" => true} %>
-    </div>
-
   <% end %>
 
   <br />
