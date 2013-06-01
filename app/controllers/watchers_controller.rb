@@ -27,7 +27,7 @@ class WatchersController < ApplicationController
   end
 
   def index
-    @watchers = current_user.watchers.order(:email).page(params[:page]).per(5)
+    @watchers = current_user.watchers.order(:email).page(params[:page]).per(25)
   end
 
   def destroy

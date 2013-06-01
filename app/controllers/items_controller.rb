@@ -5,7 +5,7 @@ class ItemsController < ApplicationController
   # GET /items
   # GET /items.json
   def index
-    @items = @wish_list.items.order(:title).page(params[:page]).per(25)
+    @items = @wish_list.items.order(:title).page(params[:page]).per(15)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -86,6 +86,7 @@ class ItemsController < ApplicationController
   end
 
   private
+
   def find_wish_list
     @user = current_user.watched_users.where(:id => params[:user_id]).first || current_user
     @wish_list = @user.wish_lists.find(params[:wish_list_id])

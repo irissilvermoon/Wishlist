@@ -6,8 +6,18 @@
 
 
 $(document).ready(function() {
-  $('.options-checkbox').on('click', function() {
-    $(this).replaceWith('<span>Yes</span>');
-    $(this).remove();
+  $('.options-checkbox').on('click', function(event) {
+    var $el = $(event.target);
+    var url = $el.data('url');
+
+    console.log(url);
+    // $.post('ajax/test.html', function(data) {
+    //   $('.result').html(data);
+    // });
+    $.post(url, function(data) {
+      console.log('success');
+    });
+
+    $el.replaceWith('<span>Yes</span>');
   });
 });

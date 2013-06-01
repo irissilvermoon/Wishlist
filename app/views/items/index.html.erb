@@ -32,7 +32,11 @@
 
         <p>
           <b>Purchased?</b>
-          <input type="checkbox" class="options-checkbox" value="option1">
+          <% if item.purchased? %>
+            Yes
+          <% else %>
+            <input type="checkbox" class="options-checkbox" value="option1" data-url="<%= wish_list_item_purchases_path(@wish_list, item) %>">
+          <% end %>
         </p>
 
         <% if can_edit_wish_list? %>

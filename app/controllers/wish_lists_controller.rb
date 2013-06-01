@@ -6,7 +6,7 @@ class WishListsController < ApplicationController
   before_filter :find_wish_list, :except => [:index, :new, :create]
 
   def index
-    @wish_lists = @user.wish_lists.order(:title).page(params[:page]).per(25)
+    @wish_lists = @user.wish_lists.order(:title).page(params[:page]).per(24)
     respond_to do |format|
       format.html # index.html.erb
       format.json { render json: @wish_lists }
