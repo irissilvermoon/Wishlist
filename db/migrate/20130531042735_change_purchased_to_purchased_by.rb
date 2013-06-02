@@ -1,6 +1,6 @@
 class ChangePurchasedToPurchasedBy < ActiveRecord::Migration
   def change
-    change_column :items, :purchased, :integer
-    rename_column :items, :purchased, :purchased_by
+    remove_column :items, :purchased
+    add_column :items, :purchased_by, :integer
   end
 end
