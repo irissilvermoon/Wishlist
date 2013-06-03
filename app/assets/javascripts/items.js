@@ -14,10 +14,22 @@ $(document).ready(function() {
     // $.post('ajax/test.html', function(data) {
     //   $('.result').html(data);
     // });
-    $.post(url, function(data) {
-      console.log('success');
-    });
-
-    checkbox.replaceWith('<span>Yes</span>');
+    if (checkbox.is(':checked')) {
+      $.post(url, function(data) {
+          console.log('success');
+        });
+    }
+    else {
+      $.ajax({
+        url: url,
+        type: 'DELETE',
+        complete: function(){
+          console.log('deleted');
+        }
+      });
+    }
   });
 });
+
+//search for javascript conditional syntax
+
