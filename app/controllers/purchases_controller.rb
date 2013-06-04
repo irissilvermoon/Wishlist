@@ -16,8 +16,13 @@ class PurchasesController < ApplicationController
   def destroy
     @wish_list = WishList.find(params[:wish_list_id])
     @item = @wish_list.items.find(params[:item_id])
-    @item.purchased_by = nil
-    @item.save
+
+    if @item.purchased_by == current_user
+      @item.purchased_by = nil
+      @item.save
+    else
+      flash[:alert] = "You do not have permission to unpurchase this Item."
+    end
     head 200
   end
 end

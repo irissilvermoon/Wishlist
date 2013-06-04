@@ -1,11 +1,13 @@
-<h1><%= @wish_list.title %></h1>
+<p>
+  <h1><%= @wish_list.title %></h1>
+</p>
 <p>
   <% if can_edit_wish_list? %>
     <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn btn-primary" %>
     <% else %>
     <%= link_to 'Back to Wishlists', user_wish_lists_path(@user) , :class => "btn btn-primary" %>
   <% end %>
-<p>
+</p>
 
 
 
@@ -32,7 +34,7 @@
 
         <p>
           <b>Purchased?</b>
-          <%= check_box_tag :purchased, 0, item.purchased?, :class => "options-checkbox", "data-url" => wish_list_item_purchase_path(@wish_list, item) %>
+          <%= check_box_tag :purchased, 0, item.purchased?, :class => "options-checkbox", "data-url" => wish_list_item_purchase_path(@wish_list, item), :disabled => disable_purchase_checkbox?(item) %>
         </p>
 
         <% if can_edit_wish_list? %>
