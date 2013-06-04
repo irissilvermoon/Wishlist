@@ -26,13 +26,20 @@ describe User do
       user2.username.should == "iris-1"
     end
 
-    it "does not iterates through usernames to create a unique name" do
-      user1 = Factory.create(:user, :email => "iris@something.com")
-      user2 = Factory.create(:user, :email => "iris@iris.com")
-      user3 = Factory.create(:user, :email => "iris@thisemail.com")
+    it "iterates through usernames to create a unique name" do
+      user1 = Factory.create(:user, :email => "iris@something.com", :username => nil)
+      user2 = Factory.create(:user, :email => "iris@iris.com", :username => nil)
+      user3 = Factory.create(:user, :email => "iris@thisemail.com", :username => nil)
       user1.username.should == "iris"
       user2.username.should == "iris-1"
       user3.username.should == "iris-2"
+    end
+
+    it "does not change username when email is changed" do
+      user1 = Factory.create(:user, :email => "iris@something.com")
+      user1.email = "iris1@email.com"
+      user1.save
+      user1.username.should == "iris"
     end
   end
 end

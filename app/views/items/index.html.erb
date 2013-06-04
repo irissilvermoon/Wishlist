@@ -1,13 +1,16 @@
-<p>
+
   <h1><%= @wish_list.title %></h1>
-</p>
-<p>
+
   <% if can_edit_wish_list? %>
+  <p>
     <%= link_to 'New Item', new_wish_list_item_path(@wish_list), :class => "btn btn-primary" %>
+  </p>
     <% else %>
+  <p>
     <%= link_to 'Back to Wishlists', user_wish_lists_path(@user) , :class => "btn btn-primary" %>
+  </p>
   <% end %>
-</p>
+
 
 
 

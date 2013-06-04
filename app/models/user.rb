@@ -15,7 +15,7 @@ class User < ActiveRecord::Base
   attr_accessible :email, :password, :password_confirmation,
                   :remember_me, :provider, :uid, :username, :login
 
-  validates_uniqueness_of :email, :username
+  validates_uniqueness_of :email#, :username
   before_validation :generate_username, :if => 'email.present?'
   validates_presence_of :email, :username
 
@@ -32,15 +32,25 @@ class User < ActiveRecord::Base
 
   # attr_accessible :title, :body
 
-
+  def self.with_username(name)
+    username_search = User.where(:username => username)
+    username_search = username_search.where('id != ?', id) if persisted?
+  end
 
 
   def generate_username(email = self.email)
-    self.username = email.split("@").first
+    self.username ||= email.split("@").first
 
     n = 0
 
-    while User.where(:username => self.username).exists?
+    username_search =
+      if persisted?
+        User.where('id != ?', id)
+      else
+        User.scoped
+      end
+
+    while username_search.where(:username => username).exists?
       n += 1
       stem = email.split("@").first
       self.username = "#{stem}-#{n}"

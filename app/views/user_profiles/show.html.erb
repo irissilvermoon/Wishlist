@@ -1,8 +1,9 @@
 <h1><%= current_user.username %> Profile</h1>
-
+<p>
  <%= link_to "Invite User", new_watcher_path, :class => "btn btn-primary" %>
  <%= link_to "Watchers", watchers_path, :class => "btn btn-primary"  %>
  <%= link_to "Watching", watched_users_path, :class => "btn btn-primary" %>
+</p>
 
 
 <p>
