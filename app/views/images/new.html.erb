@@ -1,14 +1,14 @@
 <h1>Please choose an image.</h1>
 <br />
-<p>
-  <%= link_to("Set to no image", wish_list_item_image_path(@wish_list, @item, :url => nil),
-                                                           :method => :post, :class => 'btn btn-primary') %>
-</p>
+<% if @item %>
+  <p>
+    <%= link_to("Set to no image", item_image_url(nil, @item), :method => :post, :class => 'btn btn-primary') %>
+  </p>
+<% end %>
 <br />
 <% @images.each do |image| %>
   <div class="item-image">
     <img src="<%= image %>">
-    <%= link_to("choose image", wish_list_item_image_path(@wish_list, @item, :url => image),
-                                                          :method => :post, :class => 'btn btn-primary') %>
+    <%= link_to("choose image", item_image_url(image, @item), :method => :post, :class => 'btn btn-primary') %>
   </div>
 <% end %>

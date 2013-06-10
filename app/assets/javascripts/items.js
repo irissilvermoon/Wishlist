@@ -31,5 +31,27 @@ $(document).ready(function() {
   });
 });
 
+// $('body').qtip({
+//   content: {
+//     text: "Loading...",
+//     ajax: {
+//       url: 'http://localhost:3000/wish_lists/14/items/22/image/new'
+//     },
+//   },
+//   style: {
+//     classes: 'qtip-bootstrap'
+//   },
+//   position: {
+//     at: "center",
+//     my: "center"
+//   },
+//   show: {
+//     modal: true
+//   },
+//   hide: {
+//     event: false
+//   }
+// }).qtip('show');
+
 //search for javascript conditional syntax
 
