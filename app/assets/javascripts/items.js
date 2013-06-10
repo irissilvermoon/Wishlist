@@ -53,7 +53,8 @@ $(document).ready(function() {
       },
       position: {
         my: "left center",
-        at: "right"
+        at: "right center",
+        target: $("#item_image")
       },
       show: {
         event: false,
@@ -65,7 +66,7 @@ $(document).ready(function() {
     }).qtip('show');
   });
 
-  $('body').on('click', '.qtip-modal a', function (event) {
+  $('body').on('click', '.qtip-content a', function (event) {
     var $link = $(event.target);
     var imageUrl = $link.attr('href');
 
@@ -75,6 +76,8 @@ $(document).ready(function() {
     console.log("You chose", imageUrl);
 
     $('#item_image').val(imageUrl);
+
+    $('#item_link').qtip('hide');
   });
 });
 

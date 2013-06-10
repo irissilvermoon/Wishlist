@@ -1,0 +1,11 @@
+// Wishlist qTip overrides
+
+.qtip-bootstrap {
+  max-width: 1000px;
+}
+
+.qtip-content {
+  overflow: scroll;
+  height: 600px;
+  width: 600px;
+}
