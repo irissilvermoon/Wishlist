@@ -29,6 +29,53 @@ $(document).ready(function() {
       });
     }
   });
+
+  $("#item_link").on('change', function (event) {
+    var $input = $(event.target);
+    var imagePath = $input.data('new-image-url') + "?url=" + $input.val();
+
+    console.log("You changed the url to", $input.val());
+    console.log("Submitting to", imagePath);
+
+    // Get rid of any existing modals
+    $input.qtip('destroy');
+
+    $input.qtip({
+      //id: 'image-picker',
+      content: {
+        text: "Loading...",
+        ajax: {
+          url: imagePath
+        },
+      },
+      style: {
+        classes: 'qtip-bootstrap'
+      },
+      position: {
+        my: "left center",
+        at: "right"
+      },
+      show: {
+        event: false,
+        modal: false
+      },
+      hide: {
+        event: false
+      }
+    }).qtip('show');
+  });
+
+  $('body').on('click', '.qtip-modal a', function (event) {
+    var $link = $(event.target);
+    var imageUrl = $link.attr('href');
+
+    event.preventDefault();
+    event.stopPropagation();
+
+    console.log("You chose", imageUrl);
+
+    $('#item_image').val(imageUrl);
+  });
 });
 
 // $('body').qtip({
