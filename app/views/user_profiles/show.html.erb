@@ -1,9 +1,16 @@
-<h1><%= current_user.username %> Profile</h1>
-<p>
- <%= link_to "Invite User", new_watcher_path, :class => "btn btn-primary" %>
- <%= link_to "Watchers", watchers_path, :class => "btn btn-primary"  %>
- <%= link_to "Watching", watched_users_path, :class => "btn btn-primary" %>
-</p>
+<% if can_edit_wish_list? %>
+  <h1> <%= current_user.username %>'s Profile </h1>
+    <p>
+     <%= link_to "Invite User", new_watcher_path, :class => "btn btn-primary" %>
+     <%= link_to "Watchers", watchers_path, :class => "btn btn-primary"  %>
+     <%= link_to "Watching", watched_users_path, :class => "btn btn-primary" %>
+    </p>
+<% else %>
+  <h1>
+  <%= @user.username %>'s Profile
+  </h1
+<% end %>
+
 
 
 <p>
@@ -16,5 +23,6 @@
 </p>
 
 
-
-<%= link_to 'Edit Profile', edit_user_profile_path, :class => "btn-primary btn-small" %>
+<% if can_edit_wish_list? %>
+  <%= link_to 'Edit Profile', edit_user_profile_path, :class => "btn-primary btn-small" %>
+<% end %>

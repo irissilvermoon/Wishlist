@@ -2,9 +2,7 @@
 
   <% if can_edit_wish_list? %>
       <h1>My Wishlists</h1>
-      <p>
-        <%= link_to 'New Wish List', new_wish_list_path, :class => "btn btn-primary" %>
-      </p>
+      <p><%= link_to 'New Wish List', new_wish_list_path, :class => "btn btn-primary" %></p>
   <% else %>
       <h2>
         <%= @user.username %>'s Wishlists
