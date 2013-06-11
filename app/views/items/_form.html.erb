@@ -22,20 +22,17 @@
     <%= f.label :link %>
     <%= f.text_field :link, 'data-new-image-url' => new_image_path %>
   </div>
+
   <div class="field">
     <%= f.label :cost %>
     <%= f.text_field :cost %>
   </div>
 
-  <% if @item.persisted? && @item.link != "http://" %>
-    <div class="field">
-      <%= f.label :image %>
-      <%= link_to "choose image", new_wish_list_item_image_path(@wish_list, @item), :class => "btn btn-primary" %>
-    </div>
-  <% else %>
+  <div class="field">
     <%= f.label :image %>
     <%= f.text_field :image %>
-  <% end %>
+  </div>
+
 
   <br />
   <div class="actions">

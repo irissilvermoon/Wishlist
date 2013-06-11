@@ -30,8 +30,8 @@ $(document).ready(function() {
     }
   });
 
-  $("#item_link").on('change', function (event) {
-    var $input = $(event.target);
+  var chooseImage = function (event) {
+    var $input = $("#item_link");
     var imagePath = $input.data('new-image-url') + "?url=" + $input.val();
 
     console.log("You changed the url to", $input.val());
@@ -64,7 +64,10 @@ $(document).ready(function() {
         event: false
       }
     }).qtip('show');
-  });
+  };
+
+  $("#item_link").on('change', chooseImage);
+  $("#item_image").on('click', chooseImage);
 
   $('body').on('click', '.qtip-content a', function (event) {
     var $link = $(event.target);
